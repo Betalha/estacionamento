@@ -191,8 +191,8 @@ class IdentificadorEstado:
 
     def identificar_estado(self, placa):
         prefixo = placa[:3]
-        for inicio, fim in self.estados.items():
-            if str(inicio) <= placa <= str(fim):
-                return self.estados[inicio]
+        for intervalo, estado in self.estados.items():
+            if str(intervalo[0]) <= placa <= str(intervalo[1]):
+                return estado
 
         return "Estado não encontrado"
